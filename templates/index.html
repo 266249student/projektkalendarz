@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask App</title>
+</head>
+<body>
+    <h1>Kalendarz studencki z notatkami</h1>
+    <table border="1">
+        <tr>
+            <th>Day</th>
+            <th>Note</th>
+            <th>course</th>
+        </tr>
+        {% for row in rows %}
+        <tr>
+            <td>{{ row[0] }}</td>  {# Assuming 'day' is the first column in the query result #}
+            <td>{{ row[1] }}</td>  {# Assuming 'note' is the second column in the query result #}
+            <td>{{ row[2] }}</td>  {# Assuming 'course' is the second column in the query result #}
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Add New Note</h2>
+    <form action="/add" method="post">
+        <label for="day">Day:</label>
+        <input type="text" id="day" name="day" placeholder="Enter day" required><br><br>
+
+        <label for="note">Note:</label>
+        <input type="text" id="note" name="note" placeholder="Enter note" required><br><br>
+
+        <label for="course">Course:</label>
+        <input type="text" id="course" name="course" placeholder="Enter course name" required><br><br>
+
+        <button type="submit">Add Note</button>
+    </form>
+
+    <h2>Upload File to Azure Blob Storage</h2>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file" required><br><br>
+        <button type="submit">Upload File</button>
+    </form>
+
+    {% if blob_url %}
+    <p>File successfully uploaded to Azure Blob Storage!</p>
+    <p>Uploaded File URL: <a href="{{ blob_url }}">{{ blob_url }}</a></p>
+    {% endif %}
+
+</body>
+</html>
