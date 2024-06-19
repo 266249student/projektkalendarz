@@ -31,5 +31,5 @@ jobs:
         app-name: 'AplikacjaWebowaKalendarz'  # Replace with your Azure Web App name
         slot-name: 'production'  # Optional: Specify deployment slot name
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}  # Add this secret to GitHub repository settings
-        package: '.'  # Path to your application code (current directory)
+        package: 'app.py'  # Path to your application code (current directory)
 
