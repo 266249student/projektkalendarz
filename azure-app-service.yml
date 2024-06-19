@@ -1,0 +1,35 @@
+name: Azure App Service CI/CD
+
+on:
+  push:
+    branches:
+      - main  # Adjust as per your main branch name
+  pull_request:
+    branches:
+      - main  # Adjust as per your main branch name
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Specify your Python version
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Build and deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'AplikacjaWebowaKalendarz'  # Replace with your Azure Web App name
+        slot-name: 'production'  # Optional: Specify deployment slot name
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}  # Add this secret to GitHub repository settings
+        package: '.'  # Path to your application code (current directory)
+
