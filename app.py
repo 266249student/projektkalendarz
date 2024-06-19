@@ -20,7 +20,7 @@ params = {
 }
 
 # Azure Blob Storage connection parameters
-AZURE_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=<your_account_name>;AccountKey=<your_account_key>;EndpointSuffix=core.windows.net"
+AZURE_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=blobstoragedlaproj;AccountKey=DefaultEndpointsProtocol=https;AccountName=blobstoragedlaproj;AccountKey=UYKMFQEAJnvwUyNjRixZDCahrfaaGiFqu2WVFsWB8OLeU3MsRP83W58H9hLpyhhuBQ3buXOSSVHT+ASt/G/rBw==;EndpointSuffix=core.windows.net=;EndpointSuffix=core.windows.net"
 AZURE_STORAGE_CONTAINER_NAME = "blobstoragedlaproj"
 
 # Azure Notification Hub connection parameters
